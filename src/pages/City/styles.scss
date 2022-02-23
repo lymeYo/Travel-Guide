@@ -1,0 +1,58 @@
+@mixin descType {
+   font-size: 18px;
+   color: rgb(71, 71, 71);
+}
+
+.city-page {
+   .name-area {
+
+   }
+   
+   .additional {
+      display: flex;
+      flex-direction: column;
+   }
+   @include descType;
+
+   .sight {
+      .title {
+         font-size: 22px;
+         
+      }
+
+      .body {
+         display: flex;
+         border: 2px solid #000;
+         .info {
+            padding: 10px 20px;
+         }
+      }
+
+      .buttons {
+         display: flex;
+         align-items: flex-end;
+      }
+   }
+
+   .hotel-list {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+
+      .item {
+         // border: 2px solid #000;
+         display: flex;
+         font-family: Roboto;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+
+         .name {
+            max-width: 90%;
+            text-align: center;
+         }
+      }
+   }
+   .turn-info {
+      cursor: pointer;
+   }
+}

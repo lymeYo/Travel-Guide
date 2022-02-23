@@ -1,0 +1,15 @@
+.accordeon {
+   .body {
+      background-color: rgb(120, 153, 197);
+      padding: 10px;
+   }
+   
+   .open-btn {
+      display: flex;
+      padding: 10px;
+      justify-content: end;
+   }
+   .unvisible {
+      display: none;
+   }
+}
