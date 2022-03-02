@@ -6,6 +6,7 @@
    "configurations": [
       {
          "name": "Python: Текущий файл",
+         // я тебя люблю, у тебя все получится<3
          "type": "python",
          "request": "launch",
          "program": "${file}",
