@@ -41,9 +41,9 @@ class ApiProcessing {
       }
    }
 
-   private async getImageData(query: string) {
+   private async getImageData(query: string) { //!не рабочий метод(не видит process переменную)
       // const client = createClient(API_KEY_IMAGES);
-      //TODO не видит process переменную
+      // // TODO не видит process переменную
       // let res = await client.photos.search({ query, per_page: 1 })
       // console.log(client)
    }

@@ -1,4 +1,5 @@
 import axios from "axios"
+import produce, { Draft } from 'immer'
 
 import { SET_INITIAL_CARDS, MAIN_INPUT_HANDLER, SEARCH_PROCESSING, INVALID_REQUEST_INFO } from './homePageCreators'
 import { actionInterface } from '../../../utils/constants'
@@ -13,7 +14,10 @@ interface cardsRowInterface {
 }
 
 interface initialStateInterface {
-   mainInput: object
+   mainInput: {
+      value: string,
+      infoMessage: string,
+   }
    initialCards: Array<cardsRowInterface>
    searchPack: Array<packItemInterface>
    searchMode: boolean
@@ -34,47 +38,29 @@ let initialState: initialStateInterface = {
    searchMode: false,
 }
 
-function homePageReducer(state: any = initialState, action: actionInterface) {
+const homePageReducer = produce((draft: Draft<initialStateInterface>, action: actionInterface) => {
    
    switch (action.type) {
       case SET_INITIAL_CARDS:
-         return {
-            ...state,
-            initialCards: action.cardsData
-         }
+         draft.initialCards = action.cardsData
+         break
 
       case MAIN_INPUT_HANDLER: 
-         return {
-            ...state,
-            mainInput: {
-               ...state.mainInput,
-               value: action.value,
-            }
-         }
+         draft.mainInput.value = action.value
+         break
 
       case SEARCH_PROCESSING:
-         return {
-            ...state,
-            searchPack: action.searchPack,
-            mainInput: {
-               ...state.mainInput,
-               infoMessage: '',
-            }
-         }
+         draft.searchPack = action.searchPack
+         draft.mainInput.infoMessage = ''
+         break
 
       case INVALID_REQUEST_INFO:
-         return {
-            ...state,
-            searchPack: [],
-            mainInput: {
-               ...state.mainInput,
-               infoMessage: action.message,
-            }
-         }
-      
-      default:
-         return state
+         draft.searchPack = []
+         draft.mainInput.infoMessage = action.message
+         break
    }
-}
+
+   return draft
+})
 
 export default homePageReducer
