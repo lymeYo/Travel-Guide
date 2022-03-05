@@ -9,7 +9,6 @@ import HomePage from './pages/Home/HomePage'
 import CityPage from './pages/City/CityPage'
 
 function App() {
-    //TODO сделать роутер на cityPage
   return (
     <BrowserRouter>
       <Provider store={store}>

@@ -61,6 +61,6 @@ const homePageReducer = produce((draft: Draft<initialStateInterface>, action: ac
    }
 
    return draft
-})
+}, initialState)
 
 export default homePageReducer
